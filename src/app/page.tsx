@@ -12,30 +12,30 @@ export default function Home() {
         <div className="w-[500px] overflow-hidden rounded-2xl">
           <Image src={"/assets/bg.jpg"} alt="a beautiful desert background at night" width={4912} height={7360} className="w-full h-auto object-contain"/>
         </div>
-        <div className="w-[500px] p-[3em] flex flex-col gap-4">
+        <form action={"#"} method="post" className="w-[500px] p-[3em] flex flex-col gap-4">
           <h1 className="font-sans text-4xl font-semibold">Create an account</h1>
           <p className="text-gray-400">Already have an account? Log in</p>
           <div className="py-6 flex flex-col gap-4">
             <div className="flex gap-4">
-              <Input type="text" placeholder="First Name"/>
-              <Input type="text" placeholder="Last Name"/>
+              <Input type="text" placeholder="First Name" name="first_name" minLength={5} required/>
+              <Input type="text" placeholder="Last Name" name="last_name" required/>
             </div>
-            <Input type="email" placeholder="Email"/>
-            <Input type="password" placeholder="Enter your password"/>
+            <Input type="email" placeholder="Email" name="email" required/>
+            <Input type="password" placeholder="Enter your password" name="password" minLength={8} required/>
             <div className="flex items-center space-x-2">
-              <Checkbox />
+              <Checkbox required />
               <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                 Accept terms and conditions
               </label>
             </div>
           </div>
-          <Button className="bg-[#a872ff] text-primary">Create account</Button>
+          <Button type="submit" className="bg-[#a872ff] text-primary">Create account</Button>
           <Separator className="my-4 bg-gray-500"/>
           <div className="flex gap-4">
             <Button className="flex-1 bg-ghost border border-white text-white">Google</Button>
             <Button className="flex-1 bg-ghost border border-white text-white">Apple</Button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
